@@ -1,38 +1,43 @@
-import React from "react";
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
+import "./Movie.css";
 
-function Movie(props) {
-  //console.log(Number(props.price));
+const Movie = props => {
   return (
-    <>
-      <hr></hr>
-      <div>
-        영화 이름 : {props.mName ? "🕶" + props.mName + "🕶" : "이름정보 없음"}
+    <div className="movie_data">
+      <img
+        className="movie_poster"
+        src={`${props.poster_path}`}
+        height="300"
+      ></img>
+      <div className="movie_title">{props.title}</div>
+      <div className="movie_ovorview">{props.overview.slice(0, 100)}...</div>
+      <div className="movie_vote">
+        {/* ({props.vote_average}/10){" "} */}
+        {Array(Number(props.vote_average.toFixed(0)))
+          .fill(0)
+          .map((ele, idx) => {
+            return <span key={idx}>⭐️</span>;
+          })}
       </div>
-      <div>
-        영화 배우 : {props.actor ? "👀" + props.actor + "👀" : "배우정보 없음"}
+      <div className="movie_adult ">{props.adult}</div>
+      <div className="movie_lang">언어 : {props.original_language}</div>
+      <div className="movie_date movie_viewt">
+        개봉일 : {props.release_date}
       </div>
-      <div>영화 장르 : {props.genre}</div>
-      <div>
-        상영 시간 :{" "}
-        {props.time
-          ? props.time
-              .filter(ele => {
-                return typeof ele === "string" ? true : false;
-              })
-              .join(",")
-          : "상영정보 없음"}
-      </div>
-      <div>티켓 가격 : {props.price ? props.price + 500 : "가격정보 없음"}</div>
-    </>
+      <div className="movie_id movie_viewt">ID : {props.id}</div>
+    </div>
   );
-}
+};
 
 Movie.propTypes = {
-  mName: propTypes.string.isRequired,
-  actor: propTypes.string.isRequired,
-  genre: propTypes.arrayOf(propTypes.string.isRequired),
-  price: propTypes.number,
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  poster_path: PropTypes.string.isRequired,
+  overview: PropTypes.string.isRequired,
+  vote_average: PropTypes.number.isRequired,
+  adult: PropTypes.string.isRequired,
+  original_language: PropTypes.string.isRequired,
+  release_date: PropTypes.string.isRequired,
 };
 
 export default Movie;

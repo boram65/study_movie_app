@@ -1,0 +1,58 @@
+.movie_data {
+  background-color: rgb(78, 78, 78);
+  margin: 100px;
+  padding: 30px;
+  position: relative;
+}
+
+.movie_title {
+  font-size: xx-large;
+}
+
+.movie_ovorview {
+  color: rgb(175, 175, 175);
+}
+
+.movie_id {
+  color: rgb(217, 217, 217);
+  position: absolute;
+  top: 5px;
+  right: 10px;
+
+  border: 1px solid rgb(0, 0, 0);
+  background-color: rgb(191, 106, 106);
+  padding: 3px;
+  border-radius: 10px;
+}
+.movie_date {
+  color: rgb(217, 217, 217);
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  font-size: 13px;
+  border-radius: 10px;
+}
+.movie_viewt {
+  -webkit-box-shadow: inset -1px 3px 8px 5px rgb(78, 78, 78),
+    2px 5px 16px 0px #0b325e, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: inset -1px 3px 8px 5px rgb(78, 78, 78), 2px 5px 16px 0px #531d8c,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  border-radius: 10px;
+}
+.movie_adult {
+  background-color: red;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+  border-radius: 50%;
+  padding: 3px;
+}
+.movie_poster {
+  display: inline-block;
+  border: 1px solid rgb(135, 46, 170);
+}
+
+.movie_lang {
+  text-transform: uppercase;
+}
