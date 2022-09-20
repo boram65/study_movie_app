@@ -10,6 +10,7 @@ const Movie = props => {
         height="300"
       ></img>
       <div className="movie_title">{props.title}</div>
+
       <div className="movie_ovorview">{props.overview.slice(0, 100)}...</div>
       <div className="movie_vote">
         {/* ({props.vote_average}/10){" "} */}

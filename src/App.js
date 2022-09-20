@@ -1,56 +1,40 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import Movie from "./components/Movie";
-import "./App.css";
+import React from "react";
+import Movies from "./components/Movies";
+import ClickCount from "./components/ClickCount";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Menu from "./components/Menu";
 
+const Home = () => {
+  return <h2>홈 컨포넌트</h2>;
+};
+const About = () => {
+  return <h2>개발자 소개</h2>;
+};
+const Expected = () => {
+  return <h2>상영예정</h2>;
+};
+const Showing = () => {
+  return <h2>상영중</h2>;
+};
+const Popular = () => {
+  return <h2>유명한</h2>;
+};
 function App(props) {
-  const [loding, setLoding] = useState(true);
-
-  const [movies, setMovies] = useState([]);
-
-  const getMovieAPI = async () => {
-    if (movies.length > 0) return;
-
-    const result = await axios.get(
-      "https://api.themoviedb.org/3/movie/popular?api_key=b2c40fffcdf11a119c54825b1eb6fc77&language=ko&page=2&region=KR"
-    );
-    console.log(movies);
-    setMovies(result.data.results);
-  };
-
-  useEffect(() => {
-    getMovieAPI();
-  }, []);
-
-  setTimeout(() => {
-    setLoding(false);
-  }, 100);
-
   return (
-    <>
-      <div>
-        {loding ? (
-          <div>로딩중...</div>
-        ) : (
-          <div>
-            {movies.map((ele, idx) => {
-              return (
-                <Movie
-                  title={movies[idx].title}
-                  poster_path={`https://image.tmdb.org/t/p/original${movies[idx].poster_path}`}
-                  overview={movies[idx].overview}
-                  vote_average={movies[idx].vote_average}
-                  adult={movies[idx].adult ? "19" : "19"}
-                  original_language={movies[idx].original_language}
-                  release_date={movies[idx].release_date}
-                  id={movies[idx].id}
-                />
-              );
-            })}
-          </div>
-        )}
-      </div>
-    </>
+    <BrowserRouter>
+      <Menu />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/popular" element={<Movies apiPath="popular" />} />
+        <Route path="/showing" element={<Movies apiPath="now_playing" />} />
+        <Route path="/expected" element={<Movies apiPath="upcoming" />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
   );
+  // return (
+
+  //
+  // );
 }
 export default App;
