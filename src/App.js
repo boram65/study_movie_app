@@ -3,6 +3,7 @@ import Movies from "./components/Movies";
 import ClickCount from "./components/ClickCount";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Menu from "./components/Menu";
+import Youtube from "./components/Youtube";
 
 const Home = () => {
   return <h2>홈 컨포넌트</h2>;
@@ -29,6 +30,7 @@ function App(props) {
         <Route path="/showing" element={<Movies apiPath="now_playing" />} />
         <Route path="/expected" element={<Movies apiPath="upcoming" />} />
         <Route path="/about" element={<About />} />
+        <Route path="/youtube" element={<Youtube />} />
       </Routes>
     </BrowserRouter>
   );

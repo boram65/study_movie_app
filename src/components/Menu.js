@@ -19,6 +19,9 @@ const Menu = () => {
           <li>
             <a href="/about">💻어바웃 어스...</a>
           </li>
+          <li>
+            <a href="/youtube">📼유튜브</a>
+          </li>
         </ul>
       </nav>
     </div>
