@@ -22,6 +22,9 @@ const Menu = () => {
           <li>
             <a href="/youtube">📼유튜브</a>
           </li>
+          <li>
+            <a href="/tailwind">🧵tailwind</a>
+          </li>
         </ul>
       </nav>
     </div>

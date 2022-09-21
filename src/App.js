@@ -1,6 +1,7 @@
 import React from "react";
 import Movies from "./components/Movies";
 import ClickCount from "./components/ClickCount";
+import "./App.css";
 import {
   HashRouter,
   BrowserRouter,
@@ -10,9 +11,10 @@ import {
 } from "react-router-dom";
 import Menu from "./components/Menu";
 import Youtube from "./components/Youtube";
+import Tailwind from "./components/Tailwind";
 
 const Home = () => {
-  return <h2>홈 컨포넌트</h2>;
+  return <h2 className="text-3xl font-bold underline">홈 컴포넌트</h2>;
 };
 const About = () => {
   return <h2>개발자 소개</h2>;
@@ -35,6 +37,7 @@ function App(props) {
         <Route path="/popular" element={<Movies apiPath="popular" />} />
         <Route path="/showing" element={<Movies apiPath="now_playing" />} />
         <Route path="/expected" element={<Movies apiPath="upcoming" />} />
+        <Route path="/tailwind" element={<Tailwind />} />
         <Route path="/about" element={<About />} />
         <Route path="/youtube" element={<Youtube />} />
       </Routes>
