@@ -1,7 +1,13 @@
 import React from "react";
 import Movies from "./components/Movies";
 import ClickCount from "./components/ClickCount";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import {
+  HashRouter,
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+} from "react-router-dom";
 import Menu from "./components/Menu";
 import Youtube from "./components/Youtube";
 
